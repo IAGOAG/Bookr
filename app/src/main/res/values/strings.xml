@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bookr</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">i57fZItbiiiCwolJtvJkyDMpPgHtE1qIL8pvRWNk</string>
+    <string name="back4app_client_key">qQS4OdY9jqvI6KV2Eu5gtw2xQOptpeoukB0s9Mb7</string>
+
+</resources>
