@@ -12,8 +12,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Parse.initialize(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Parse.initialize(this);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 }
