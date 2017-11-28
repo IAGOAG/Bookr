@@ -37,11 +37,16 @@
             android:name=".SignUp"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="io.eliot.bookr.MainActivity" />
         </activity>
+        <activity
+            android:name=".selecter"
+            android:label="@string/title_activity_selecter"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
