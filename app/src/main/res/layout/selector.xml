@@ -33,11 +33,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/generateID"
         app:layout_constraintVertical_bias="0.773" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/generateID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

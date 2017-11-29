@@ -19,5 +19,6 @@
     </string>
     <string name="title_activity_sign_up">Sign Up</string>
     <string name="title_activity_selecter">selecter</string>
+    <string name="title_activity_timings">Timings</string>
 
 </resources>

@@ -46,6 +46,10 @@
         <activity
             android:name=".selecter"
             android:label="@string/title_activity_selecter"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Timings"
+            android:label="@string/title_activity_timings"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
