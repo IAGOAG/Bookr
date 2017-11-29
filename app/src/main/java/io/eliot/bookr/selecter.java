@@ -14,8 +14,13 @@ import android.widget.EditText;
 
 import com.parse.ParseObject;
 
+import org.json.JSONArray;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 
 import io.eliot.bookr.printer;
 
@@ -34,6 +39,10 @@ public class selecter extends AppCompatActivity {
         AlertDialog ok = builder.create();
         ok.show();
     }
+    int earlyH;
+    int finishH;
+    int earlyM;
+    int finishM;
     //ID for getting times
     EditText id;
     //ID for setting up times
@@ -70,6 +79,7 @@ public class selecter extends AppCompatActivity {
                 ).start();
             }
         });
+
         //RETREAVE TIMES HERE
         getTimes.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -79,19 +89,44 @@ public class selecter extends AppCompatActivity {
                     public void run() {
                         ParseObject idObject = new ParseObject(id.getText().toString());
                         if(idObject.isDataAvailable()){
+                            String date = DateFormat.getDateInstance().format(new Date());
+                            //GETTING FROM DB INFO
                             String name = idObject.getString("Name");
-                            int early = idObject.getInt("early"+ );
-                            String breaks = idObject.getString("breaks");
-                            int finish = idObject.getInt("finish");
-                            Boolean today = idObject.getBoolean("today");
+                            String daysWorking = idObject.getString("daysWorking");
+                            String breaks = idObject.getString("breaks"+date);
+                            SimpleDateFormat simpleDateformat = new SimpleDateFormat("EEEE");
+                            if(daysWorking.contains(simpleDateformat.format("dd"))){
+
+                            }
+                            Boolean dayNorm = idObject.getBoolean("dayNorm");
+                            if(dayNorm){
+                                    int earlyH = idObject.getInt("earlyH");
+                                    int finishH = idObject.getInt("finishH");
+                                    int earlyM = idObject.getInt("earlyM");
+                                    int finishM = idObject.getInt("finishM"); }
+                            else{
+                                int earlyH = idObject.getInt("earlyH"+date);
+                                int finishH = idObject.getInt("finishH"+date);
+                                int earlyM = idObject.getInt("earlyM"+date);
+                                int finishM = idObject.getInt("finishM"+date);
+                            }
+
+
                             if(today){
+                                //SENDING TO NEW ACTIVITY TO SELECT TIMES
                                 Intent intent = new Intent(selecter.this, Timings.class);
-                                intent.putExtra("start", Integer.toString(early));
-                                intent.putExtra("end", Integer.toString(finish));
-                                //intent.putExtra("today",);
+                                intent.putExtra("startH", Integer.toString(earlyH));
+                                intent.putExtra("endH", Integer.toString(finishH));
+                                intent.putExtra("startM", Integer.toString(earlyM));
+                                intent.putExtra("endM", Integer.toString(finishM));
+                                intent.putExtra("name", name);
+                                intent.putExtra("breaks",breaks);
+                                intent.putExtra("dayNorm",dayNorm);
+                                intent.putExtra("workingDays",daysWorking);
                                 startActivity(intent);
                             }else{
-                                alertDisplayer(name+" is not working today","Do you want to look at tomorrow?");
+                                alertDisplayer(name+" is not working today","We will show you the next available day instead");
+
                             }
                             idObject.getBoolean("7");
                         }else{
